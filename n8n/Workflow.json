@@ -1,0 +1,581 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1Jnblti9BI_FdhWK6UvKvXhDBBTGYgfIYAWk5KA91AUU",
+          "mode": "list",
+          "cachedResultName": "Parking_Log",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Jnblti9BI_FdhWK6UvKvXhDBBTGYgfIYAWk5KA91AUU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "ชีต1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Jnblti9BI_FdhWK6UvKvXhDBBTGYgfIYAWk5KA91AUU/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Plate_Number": "={{ $json.plate_number }}",
+            "Province": "={{ $json.province }}",
+            "Raw_Text": "={{ $json.raw_text }}",
+            "Timestamp_In": "={{ $json.timestamp_in }}",
+            "Status": "={{ $json.status_gate }}",
+            "Timestamp_Out": "={{ $json.timestamp_out }}",
+            "Duration": "={{ $json.duration }}",
+            "Fee": "={{ $json.fee }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp_In",
+              "displayName": "Timestamp_In",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Plate_Number",
+              "displayName": "Plate_Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Province",
+              "displayName": "Province",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Timestamp_Out",
+              "displayName": "Timestamp_Out",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Duration",
+              "displayName": "Duration",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Fee",
+              "displayName": "Fee",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Raw_Text",
+              "displayName": "Raw_Text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        560,
+        -32
+      ],
+      "id": "2a028a86-5cff-4099-855b-965018c84437",
+      "name": "Parking_Logs"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{\n  {\n    \"message\": $('Calculate duration & fee').item.json.lcd_message,\n    \"line1\": \"Fee: \" + $('Calculate duration & fee').item.json.fee,\n    \"line2\": \"Time: \" + $('Calculate duration & fee').item.json.duration + \" Hrs\",\n    \"open_gate\": $('Calculate duration & fee').item.json.fee == 0 ? true : false\n  }\n}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        1232,
+        192
+      ],
+      "id": "ffaff37a-1982-4ad0-8d43-885a09316fc5",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Jnblti9BI_FdhWK6UvKvXhDBBTGYgfIYAWk5KA91AUU",
+          "mode": "list",
+          "cachedResultName": "Parking_Log",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Jnblti9BI_FdhWK6UvKvXhDBBTGYgfIYAWk5KA91AUU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "ชีต1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Jnblti9BI_FdhWK6UvKvXhDBBTGYgfIYAWk5KA91AUU/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $json.row_number }}",
+            "Timestamp_In": "={{ $json.timestamp_in }}",
+            "Plate_Number": "={{ $json.plate_number }}",
+            "Province": "={{ $json.province }}",
+            "Status": "OUT",
+            "Timestamp_Out": "={{ $json.timestamp_out }}",
+            "Duration": "={{ $json.duration }}",
+            "Fee": "={{ $json.fee }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "Timestamp_In",
+              "displayName": "Timestamp_In",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Plate_Number",
+              "displayName": "Plate_Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Province",
+              "displayName": "Province",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Timestamp_Out",
+              "displayName": "Timestamp_Out",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Duration",
+              "displayName": "Duration",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fee",
+              "displayName": "Fee",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Raw_Text",
+              "displayName": "Raw_Text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1008,
+        192
+      ],
+      "id": "e4370824-63ba-4ef7-8efd-8690631e3ebe",
+      "name": "Update duration&fee in Parking_logs",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "jsCode": "// รับข้อมูลแถวที่ค้นเจอจาก Google Sheets\nconst rowData = $input.item.json;\n\n// 1. ดึงเวลาเข้า (Timestamp_In)\nconst entryTimeStr = rowData.Timestamp_In; \n\n// Error Handling: ถ้าหาเวลาเข้าไม่เจอ\nif (!entryTimeStr) {\n  return {\n    json: {\n      error: true,\n      message: \"Error: ไม่พบเวลาเข้า (Timestamp Not Found)\"\n    }\n  };\n}\n\n// 2. คำนวณระยะเวลา (Duration)\nconst entryTime = new Date(entryTimeStr).getTime();\nconst exitTime = new Date().getTime(); // เวลาปัจจุบัน (เวลาออก)\n\n// หาผลต่างเป็นมิลลิวินาที -> แปลงเป็นชั่วโมง\nconst diffMs = exitTime - entryTime;\n\n// Math.ceil คือการปัดเศษขึ้น (เช่น จอด 3 ชม. 5 นาที -> คิดเป็น 4 ชม.)\nconst durationHours = Math.ceil(diffMs / (1000 * 60 * 60));\n\n// 3. คำนวณค่าจอด (Fee Calculation)\nlet fee = 0;\n\n// === 💰 แก้ไขสูตรคำนวณเงินตรงนี้ ===\nif (durationHours <= 2) {\n    fee = 0; // กรณี Error เวลา\n} else {\n    // สูตรตามโจทย์: ชั่วโมงละ 10 บาท (4ชม.=40, 5ชม.=50)\n    fee = durationHours * 10;\n}\n\n// 4. ส่งค่าออกไป (Output) เพื่อไป Update ลง Sheets และส่งกลับ RPi\nreturn {\n  json: {\n    // ข้อมูลเดิมสำหรับใช้อ้างอิง\n    plate_number: rowData.Plate_Number,\n    province: rowData.Province,\n    row_number: rowData.row_number, // จำเป็นมาก! เอาไว้บอก Node ถัดไปว่าจะแก้บรรทัดไหน\n    \n    // ข้อมูลใหม่ที่คำนวณเสร็จแล้ว\n    timestamp_in: entryTimeStr,\n    timestamp_out: new Date(exitTime).toISOString(),\n    duration: durationHours,\n    fee: fee,\n    status: \"OUT\", // เอาไว้อัปเดตสถานะให้จบงาน\n    \n    // ข้อความสำหรับส่งกลับไปโชว์ที่จอ LCD\n    lcd_message: \"PAYMENT REQUIRED\",\n    fee_text: `${fee} Baht`,\n    time_text: `${durationHours} Hrs`\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        784,
+        192
+      ],
+      "id": "2dd1a916-d993-43b2-8f38-914d975526ec",
+      "name": "Calculate duration & fee"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Jnblti9BI_FdhWK6UvKvXhDBBTGYgfIYAWk5KA91AUU",
+          "mode": "list",
+          "cachedResultName": "Parking_Log",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Jnblti9BI_FdhWK6UvKvXhDBBTGYgfIYAWk5KA91AUU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "ชีต1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Jnblti9BI_FdhWK6UvKvXhDBBTGYgfIYAWk5KA91AUU/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Plate_Number",
+              "lookupValue": "={{ $json.plate_number }}"
+            },
+            {
+              "lookupColumn": "Status",
+              "lookupValue": "IN"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        560,
+        192
+      ],
+      "id": "3bed8ca0-8187-4e2c-bc6a-5622f83fa911",
+      "name": "Lookup in Parking_Logs",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.ocr.space/parse/image",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "={{ Object.keys($binary)[0] }}"
+            },
+            {
+              "name": "apikey"
+            },
+            {
+              "name": "language",
+              "value": "tha"
+            },
+            {
+              "name": "isOverlayRequired",
+              "value": "false"
+            },
+            {
+              "name": "OCREngine",
+              "value": "2"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        112,
+        192
+      ],
+      "id": "63d74e68-54db-4b99-bc91-186e667c683d",
+      "name": "Exit OCR"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.ocr.space/parse/image",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "={{ Object.keys($binary)[0] }}"
+            },
+            {
+              "name": "apikey"
+            },
+            {
+              "name": "language",
+              "value": "tha"
+            },
+            {
+              "name": "isOverlayRequired",
+              "value": "false"
+            },
+            {
+              "name": "OCREngine",
+              "value": "2"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        112,
+        -32
+      ],
+      "id": "82d65fe8-800b-4c3a-99b8-7c0595c1f580",
+      "name": "Entry OCR"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "b875a713-7cf7-4dd0-8b28-1f3176a8c6c1",
+        "responseMode": "responseNode",
+        "options": {
+          "binaryPropertyName": "file"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -112,
+        192
+      ],
+      "id": "1d27a207-6a0d-40f6-bebc-ab426c2cda63",
+      "name": "Exit Camera",
+      "webhookId": "b875a713-7cf7-4dd0-8b28-1f3176a8c6c1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "a48913ab-d169-49ac-bd5e-17c2e80f44d6",
+        "responseMode": "lastNode",
+        "responseData": "noData",
+        "options": {
+          "binaryPropertyName": "file"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -112,
+        -32
+      ],
+      "id": "61824444-bb1f-4a5b-b181-a5d3ef61e361",
+      "name": "Entry Camera",
+      "webhookId": "a48913ab-d169-49ac-bd5e-17c2e80f44d6"
+    },
+    {
+      "parameters": {
+        "jsCode": "// === 1. Whitelist จังหวัด ===\nconst validProvinces = [\n  \"กระบี่\", \"กรุงเทพมหานคร\", \"กาญจนบุรี\", \"กาฬสินธุ์\", \"กำแพงเพชร\", \"ขอนแก่น\", \"จันทบุรี\", \"ฉะเชิงเทรา\", \"ชลบุรี\", \"ชัยนาท\", \"ชัยภูมิ\", \"ชุมพร\", \"เชียงราย\", \"เชียงใหม่\", \"ตรัง\", \"ตราด\", \"ตาก\", \"นครนายก\", \"นครปฐม\", \"นครพนม\", \"นครราชสีมา\", \"นครศรีธรรมราช\", \"นครสวรรค์\", \"นนทบุรี\", \"นราธิวาส\", \"น่าน\", \"บึงกาฬ\", \"บุรีรัมย์\", \"ปทุมธานี\", \"ประจวบคีรีขันธ์\", \"ปราจีนบุรี\", \"ปัตตานี\", \"พระนครศรีอยุธยา\", \"พะเยา\", \"พังงา\", \"พัทลุง\", \"พิจิตร\", \"พิษณุโลก\", \"เพชรบุรี\", \"เพชรบูรณ์\", \"แพร่\", \"ภูเก็ต\", \"มหาสารคาม\", \"มุกดาหาร\", \"แม่ฮ่องสอน\", \"ยโสธร\", \"ยะลา\", \"ร้อยเอ็ด\", \"ระนอง\", \"ระยอง\", \"ราชบุรี\", \"ลพบุรี\", \"ลำปาง\", \"ลำพูน\", \"เลย\", \"ศรีสะเกษ\", \"สกลนคร\", \"สงขลา\", \"สตูล\", \"สมุทรปราการ\", \"สมุทรสงคราม\", \"สมุทรสาคร\", \"สระแก้ว\", \"สระบุรี\", \"สิงห์บุรี\", \"สุโขทัย\", \"สุพรรณบุรี\", \"สุราษฎร์ธานี\", \"สุรินทร์\", \"หนองคาย\", \"หนองบัวลำภู\", \"อ่างทอง\", \"อำนาจเจริญ\", \"อุดรธานี\", \"อุตรดิตถ์\", \"อุทัยธานี\", \"อุบลราชธานี\"\n];\n\n// ดึงข้อมูล\nconst rawText = items[0].json.ParsedResults ? items[0].json.ParsedResults[0].ParsedText : \"\"; \n\n// --- DEBUG POINT 1: อ่านข้อความไม่ได้ ---\nif (!rawText) {\n    return { json: { status: \"ERROR\", reason: \"OCR_READ_FAILED\", message: \"อ่านค่าจาก OCR ไม่ได้เลย หรือ Path ผิด\" } };\n}\n\n// Clean Data\nconst lines = rawText.split(/\\r\\n|\\r|\\n/);\nlet plateNumber = \"\";\nlet province = \"\";\n\nif (lines.length > 0) plateNumber = lines[0].replace(/[^a-zA-Z0-9ก-ฮ]/g, '').trim();\nif (lines.length > 1) province = lines[1].trim();\n\n// แก้คำผิดเบื้องต้น\nif (province.includes(\"กทม\") || province.includes(\"กรุงเทพ\")) province = \"กรุงเทพมหานคร\";\n\n// Match จังหวัด\nconst matchedProvince = validProvinces.find(p => province.includes(p));\n\n// --- DEBUG POINT 2: จังหวัดไม่ตรง ---\nif (!matchedProvince) {\n    return { \n        json: { \n            status: \"REJECTED\", \n            reason: \"INVALID_PROVINCE\", \n            message: \"จังหวัดที่อ่านได้ไม่อยู่ใน List\",\n            debug_raw_province: province,\n            debug_plate: plateNumber\n        } \n    };\n}\n\n// Memory Check (Deduplication)\nconst staticData = $getWorkflowStaticData('global');\nconst lastPlate = staticData.lastPlate;\nconst lastTime = staticData.lastTime || 0;\nconst lastProv = staticData.lastProv;\nconst currentTime = new Date().getTime();\nconst COOLDOWN_MS = 60000; \n\n// --- DEBUG POINT 3: ซ้ำ ---\nif ((lastPlate === plateNumber) && (currentTime - lastTime) < COOLDOWN_MS) {\n    return { \n        json: { \n            status: \"SKIPPED\", \n            reason: \"DUPLICATE\", \n            message: \"ข้อมูลซ้ำกับคันล่าสุด (ติด Cooldown)\",\n            last_plate: lastPlate\n        } \n    };\n}\n\n// ผ่านฉลุย\nstaticData.lastPlate = plateNumber;\nstaticData.lastTime = currentTime;\nstaticData.lastProv = province;\n\nreturn {\n  json: {\n    status: \"SUCCESS\",\n    timestamp_in: new Date().toISOString(),\n    plate_number: plateNumber,\n    province: matchedProvince,\n    status_gate: \"IN\",\n    timestamp_out:\"\",\n    duration:\"\",\n    fee:\"\",\n    raw_text: rawText\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        336,
+        -32
+      ],
+      "id": "9f4aa8dc-2114-4841-8f64-974f5b11423c",
+      "name": "Enty Data Cleaning"
+    },
+    {
+      "parameters": {
+        "jsCode": "// === 1. Whitelist จังหวัด ===\nconst validProvinces = [\n  \"กระบี่\", \"กรุงเทพมหานคร\", \"กาญจนบุรี\", \"กาฬสินธุ์\", \"กำแพงเพชร\", \"ขอนแก่น\", \"จันทบุรี\", \"ฉะเชิงเทรา\", \"ชลบุรี\", \"ชัยนาท\", \"ชัยภูมิ\", \"ชุมพร\", \"เชียงราย\", \"เชียงใหม่\", \"ตรัง\", \"ตราด\", \"ตาก\", \"นครนายก\", \"นครปฐม\", \"นครพนม\", \"นครราชสีมา\", \"นครศรีธรรมราช\", \"นครสวรรค์\", \"นนทบุรี\", \"นราธิวาส\", \"น่าน\", \"บึงกาฬ\", \"บุรีรัมย์\", \"ปทุมธานี\", \"ประจวบคีรีขันธ์\", \"ปราจีนบุรี\", \"ปัตตานี\", \"พระนครศรีอยุธยา\", \"พะเยา\", \"พังงา\", \"พัทลุง\", \"พิจิตร\", \"พิษณุโลก\", \"เพชรบุรี\", \"เพชรบูรณ์\", \"แพร่\", \"ภูเก็ต\", \"มหาสารคาม\", \"มุกดาหาร\", \"แม่ฮ่องสอน\", \"ยโสธร\", \"ยะลา\", \"ร้อยเอ็ด\", \"ระนอง\", \"ระยอง\", \"ราชบุรี\", \"ลพบุรี\", \"ลำปาง\", \"ลำพูน\", \"เลย\", \"ศรีสะเกษ\", \"สกลนคร\", \"สงขลา\", \"สตูล\", \"สมุทรปราการ\", \"สมุทรสงคราม\", \"สมุทรสาคร\", \"สระแก้ว\", \"สระบุรี\", \"สิงห์บุรี\", \"สุโขทัย\", \"สุพรรณบุรี\", \"สุราษฎร์ธานี\", \"สุรินทร์\", \"หนองคาย\", \"หนองบัวลำภู\", \"อ่างทอง\", \"อำนาจเจริญ\", \"อุดรธานี\", \"อุตรดิตถ์\", \"อุทัยธานี\", \"อุบลราชธานี\"\n];\n\n// ดึงข้อมูล\nconst rawText = items[0].json.ParsedResults ? items[0].json.ParsedResults[0].ParsedText : \"\"; \n\n// --- DEBUG POINT 1: อ่านข้อความไม่ได้ ---\nif (!rawText) {\n    return { json: { status: \"ERROR\", reason: \"OCR_READ_FAILED\", message: \"อ่านค่าจาก OCR ไม่ได้เลย หรือ Path ผิด\" } };\n}\n\n// Clean Data\nconst lines = rawText.split(/\\r\\n|\\r|\\n/);\nlet plateNumber = \"\";\nlet province = \"\";\n\nif (lines.length > 0) plateNumber = lines[0].replace(/[^a-zA-Z0-9ก-ฮ]/g, '').trim();\nif (lines.length > 1) province = lines[1].trim();\n\n// แก้คำผิดเบื้องต้น\nif (province.includes(\"กทม\") || province.includes(\"กรุงเทพ\")) province = \"กรุงเทพมหานคร\";\n\n// Match จังหวัด\nconst matchedProvince = validProvinces.find(p => province.includes(p));\n\n// --- DEBUG POINT 2: จังหวัดไม่ตรง ---\nif (!matchedProvince) {\n    return { \n        json: { \n            status: \"REJECTED\", \n            reason: \"INVALID_PROVINCE\", \n            message: \"จังหวัดที่อ่านได้ไม่อยู่ใน List\",\n            debug_raw_province: province,\n            debug_plate: plateNumber\n        } \n    };\n}\n\n// Memory Check (Deduplication)\n// *** แก้ไขบรรทัดนี้แล้ว (เติม this.) ***\nconst staticData = $getWorkflowStaticData('global');\nconst lastPlate = staticData.lastPlate;\nconst lastTime = staticData.lastTime || 0;\nconst currentTime = new Date().getTime();\nconst COOLDOWN_MS = 5000; \n\n// --- DEBUG POINT 3: ซ้ำ ---\nif (lastPlate === plateNumber && (currentTime - lastTime) < COOLDOWN_MS) {\n    return { \n        json: { \n            status: \"SKIPPED\", \n            reason: \"DUPLICATE\", \n            message: \"ข้อมูลซ้ำกับคันล่าสุด (ติด Cooldown)\",\n            last_plate: lastPlate\n        } \n    };\n}\n\n// ผ่านฉลุย\nstaticData.lastPlate = plateNumber;\nstaticData.lastTime = currentTime;\n\nreturn {\n  json: {\n    status: \"SUCCESS\",\n    timestamp_in: \"\",\n    plate_number: plateNumber,\n    province: matchedProvince,\n    status_gate:\"\",\n    timestamp_out:new Date().toISOString(),\n    duration:\"\",\n    fee:\"\",\n    raw_text: rawText\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        336,
+        192
+      ],
+      "id": "59b1c619-2754-4242-bef3-269c477d3521",
+      "name": "Exit Data Cleaning"
+    }
+  ],
+  "connections": {
+    "Update duration&fee in Parking_logs": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculate duration & fee": {
+      "main": [
+        [
+          {
+            "node": "Update duration&fee in Parking_logs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lookup in Parking_Logs": {
+      "main": [
+        [
+          {
+            "node": "Calculate duration & fee",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exit OCR": {
+      "main": [
+        [
+          {
+            "node": "Exit Data Cleaning",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Entry OCR": {
+      "main": [
+        [
+          {
+            "node": "Enty Data Cleaning",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exit Camera": {
+      "main": [
+        [
+          {
+            "node": "Exit OCR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Entry Camera": {
+      "main": [
+        [
+          {
+            "node": "Entry OCR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enty Data Cleaning": {
+      "main": [
+        [
+          {
+            "node": "Parking_Logs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exit Data Cleaning": {
+      "main": [
+        [
+          {
+            "node": "Lookup in Parking_Logs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "b784b454b3451c7b82f8fd8fba192c8f109be18d20453fb1b4b5a88c8733b937"
+  }
+}
