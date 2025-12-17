@@ -31,6 +31,7 @@ The system supports dual-lane monitoring (Entry & Exit), automatic data validati
 6. [Usage](#-usage)
 7. [Project Structure](#-project-structure)
 8. [License](#-License)
+9. [Demo & Presentation](#-Demo&Presentation)
 
 ---
 
@@ -176,3 +177,9 @@ Smart-Parking/
 ## License
 
 This project is for educational purposes under the **CN360 Digital and Microcontroller System Development** course, Thammasat University.
+
+---
+## Demo & Presentation
+Click the button below to watch our presentation and system demonstration.
+
+[![Google Drive](https://img.shields.io/badge/Google_Drive-Watch_Videos-FBBC04?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/drive/folders/1AJlY7i6rjKTz-X9y6VWky1FP09h6Fgns?usp=drive_link)
