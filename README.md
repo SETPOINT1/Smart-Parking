@@ -23,15 +23,15 @@ The system supports dual-lane monitoring (Entry & Exit), automatic data validati
 ---
 
 ## Table of Contents
-1. [Project Details](#-project-details)
-2. [System Architecture](#-system-architecture)
-3. [Hardware Requirements](#-hardware-requirements)
-4. [Software & Frameworks](#-software--frameworks)
-5. [Installation & Setup](#-installation--setup)
-6. [Usage](#-usage)
-7. [Project Structure](#-project-structure)
-8. [License](#-License)
-9. [Demo & Presentation](#-Demo&Presentation)
+1. [Project Details](#project-details)
+2. [System Architecture](#system-architecture)
+3. [Hardware Requirements](#hardware-requirements)
+4. [Software & Frameworks](#software--frameworks)
+5. [Installation & Setup](#installation--setup)
+6. [Usage](#usage)
+7. [Project Structure](#project-structure)
+8. [License](#License)
+9. [Demo & Presentation](#Demo-&-Presentation)
 
 ---
 
