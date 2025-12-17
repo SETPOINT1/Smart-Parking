@@ -31,7 +31,7 @@ The system supports dual-lane monitoring (Entry & Exit), automatic data validati
 6. [Usage](#usage)
 7. [Project Structure](#project-structure)
 8. [License](#License)
-9. [Demo & Presentation](#Demo-&-Presentation)
+9. [Demo & Presentation](#demo--presentation)
 
 ---
 
