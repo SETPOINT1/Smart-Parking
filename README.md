@@ -173,7 +173,7 @@ Smart-Parking/
 
 Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
 
-*This project was developed for educational purposes as part of the **CN36 Digital and Microcontroller System Development** course, Thammasat University.*
+*This project was developed for educational purposes as part of the **CN360 Digital and Microcontroller System Development** course, Thammasat University.*
 ---
 ## Demo & Presentation
 Click the button below to watch our presentation and system demonstration.
