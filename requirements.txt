@@ -1,6 +1,0 @@
-opencv-python
-ultralytics
-numpy
-requests
-smbus2
-RPi.GPIO
