@@ -156,6 +156,7 @@ Smart-Parking/
 ├── RPi/                        # Raspberry Pi Source Code
 │   ├── I2C_LCD_driver_Bus3.py  # LCD I2C Driver Library
 │   ├── LicensePlate.pt         # YOLOv8 Trained Model
+|   ├── requirements.txt
 │   ├── send_plates.py          # Main Logic: Detection & HTTP Request
 │   └── slots.py                # Parking Slot Management Logic
 ├── esp/                        # Microcontroller Code
@@ -170,8 +171,9 @@ Smart-Parking/
 
 ## License
 
-This project is for educational purposes under the **CN360 Digital and Microcontroller System Development** course, Thammasat University.
+Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
 
+*This project was developed for educational purposes as part of the **CN36 Digital and Microcontroller System Development** course, Thammasat University.*
 ---
 ## Demo & Presentation
 Click the button below to watch our presentation and system demonstration.
