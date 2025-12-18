@@ -1,20 +1,14 @@
 # Smart Parking System (LPR & IoT)
 
-<!-- Languages -->
-![Python](https://img.shields.io/badge/Language-Python_3.x-blue?logo=python&logoColor=white)
-![C++](https://img.shields.io/badge/Language-C++-00599C?logo=c%2B%2B&logoColor=white)
-
-<!-- Hardware -->
-![Raspberry Pi](https://img.shields.io/badge/Hardware-Raspberry_Pi_4-C51A4A?logo=raspberry-pi&logoColor=white)
-![ESP32](https://img.shields.io/badge/Hardware-ESP32-red?logo=espressif&logoColor=white)
-
-<!-- AI & Vision -->
-![YOLOv8](https://img.shields.io/badge/AI-YOLOv8-purple)
-![OpenCV](https://img.shields.io/badge/Vision-OpenCV-green?logo=opencv&logoColor=white)
-
-<!-- Tools & Cloud -->
-![n8n](https://img.shields.io/badge/Automation-n8n-ff6584?logo=n8n&logoColor=white)
-![Google Sheets](https://img.shields.io/badge/Database-Google_Sheets-34A853?logo=google-sheets&logoColor=white)
+[![Python](https://img.shields.io/badge/Language-Python_3.x-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![C++](https://img.shields.io/badge/Language-C++-00599C?logo=c%2B%2B&logoColor=white)](https://isocpp.org/)
+[![Raspberry Pi](https://img.shields.io/badge/Hardware-Raspberry_Pi_4-C51A4A?logo=raspberry-pi&logoColor=white)](https://www.raspberrypi.com/)
+[![ESP32](https://img.shields.io/badge/Hardware-ESP32-red?logo=espressif&logoColor=white)](https://docs.espressif.com/projects/arduino-esp32/en/latest/)
+[![YOLOv8](https://img.shields.io/badge/AI-YOLOv8-purple)](https://docs.ultralytics.com/)
+[![OpenCV](https://img.shields.io/badge/Vision-OpenCV-green?logo=opencv&logoColor=white)](https://opencv.org/)
+[![n8n](https://img.shields.io/badge/Automation-n8n-ff6584?logo=n8n&logoColor=white)](https://n8n.io/)
+[![Google Sheets](https://img.shields.io/badge/Database-Google_Sheets-34A853?logo=google-sheets&logoColor=white)](https://www.google.com/sheets/about/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A real-time **License Plate Recognition (LPR)** system for automated parking management combined with **IoT Slot Monitoring**. This project integrates **Edge AI (Raspberry Pi + YOLOv8)** for vehicle detection and **Low-Code Automation (n8n)** for data processing, OCR, and cloud storage.
 
