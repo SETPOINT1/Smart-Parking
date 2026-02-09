@@ -16,7 +16,7 @@ The system supports dual-lane monitoring (Entry & Exit), automatic data validati
 
 ---
 
-## Table of Contents
+## Contents
 1. [Project Details](#project-details)
 2. [System Architecture](#system-architecture)
 3. [Hardware Requirements](#hardware-requirements)
